@@ -1,6 +1,15 @@
 import random
 from typing import List
 
+"""This is a docstring
+
+    Raises:
+        Exception: [description]
+
+    Returns:
+        [type]: [description]
+"""
+
 
 class Environment:
     def __init__(self):
@@ -27,7 +36,7 @@ class Agent:
         self.total_reward = 0.0
 
     def step(self, env: Environment):
-        current_obs = env.get_observation()
+        # current_obs = env.get_observation()
         actions = env.get_actions()
         reward = env.action(random.choice(actions))
         self.total_reward += reward
