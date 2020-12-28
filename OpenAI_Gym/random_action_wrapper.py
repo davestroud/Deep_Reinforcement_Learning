@@ -15,7 +15,16 @@ class RandomActionWrapper(gym.ActionWrapper):
             print("Random!")
             return self.env.action_space.sample()
         return action
-    
-    
+
+
 if __name__ == "__main__":
     env = RandomActionWrapper(gym.make("CartPole-v0"))
+
+obs = env.reset()
+total_reward = 0.0
+while True:
+    obs, reward, done, _ = env.step(0)
+    total_reward += reward
+    if done:
+        break
+print("Reward got: %.2f" % total_reward)
