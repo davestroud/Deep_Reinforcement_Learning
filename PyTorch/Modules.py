@@ -14,3 +14,6 @@ class OurModule(nn.Module):
             nn.Dropout(p=dropout_prob),
             nn.Softmax(dim=1)
         )
+        
+    def forward(self, x):
+        return self.pipe(x)
