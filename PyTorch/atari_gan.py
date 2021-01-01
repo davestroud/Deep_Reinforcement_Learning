@@ -25,6 +25,11 @@ GENER_FILTERS = 64
 BATCH_SIZE = 16
 
 # dimension input image will be rescaled
+IMAGE_SIZE = 64
+
+LEARNING_RATE = 0.0001
+REPORT_EVERY_ITER = 100
+SAVE_IMAGE_EVERY_ITER = 1000
 
 
-class InputWrapper(gym.O)
+class InputWrapper(gym.ObservationWrapper):
