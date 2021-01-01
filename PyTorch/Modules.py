@@ -28,4 +28,3 @@ if __name__ == "__main__":
     print("Cuda's availability is %s" % torch.cuda.is_available())
     if torch.cuda.is_available():
         print("Data from cuda: %s" % out.to('cuda'))
-
