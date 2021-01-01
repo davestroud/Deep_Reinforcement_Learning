@@ -18,5 +18,13 @@ import numpy as np
 log = gym.logger
 log.set_level(gym.logger.INFO)
 
+# Declare and assign value to constants
+LATENT_VECTOR_SIZE = 100
+DISCR_FILTERS = 64
+GENER_FILTERS = 64
+BATCH_SIZE = 16
+
+# dimension input image will be rescaled
+
 
 class InputWrapper(gym.O)
