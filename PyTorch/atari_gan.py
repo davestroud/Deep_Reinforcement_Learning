@@ -74,3 +74,7 @@ class Discriminator(nn.Module):
                       kernel_size=4, stride=1, padding=0),
             nn.Sigmoid()
         )
+     
+    def forward(self, x):
+        conv_out = self.conv_pipe(x)
+        return conv_out.view(-1, 1).squeeze(dim=1)
