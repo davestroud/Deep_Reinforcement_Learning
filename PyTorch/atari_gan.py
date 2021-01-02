@@ -48,3 +48,17 @@ class InputWrapper(gym.ObservationWrapper):
         # transform (210, 160, 3) -> (3, 210, 160)
         new_obs = np.moveaxis(new_obs, 2, 0)
         return new_obs.astype(np.float32)
+    
+class Discriminator(nn.Module):
+    def __init__(self, input_shape):
+        super(Discriminator, self).__init__()
+        # this pipe converges image into the single number
+        self.conv_pipe = nn.Sequential(
+            nn.Conv2d(in_channels=input_shape[0], out_channels=DISCR_FILTERS,
+                      kernel_size=4, stride=2, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(in_channels=DISCR_FILTERS, out_channels=DISCR_FILTERS*2,
+                      kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(DISCR_FILTERS*2),
+            nn.ReLU(),
+        )
