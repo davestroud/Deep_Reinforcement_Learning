@@ -62,4 +62,9 @@ class Discriminator(nn.Module):
                       kernel_size=4, stride=2, padding=1),
             nn.BatchNorm2d(DISCR_FILTERS*2),
             nn.ReLU(),
+            nn.Conv2d(in_channels=DISCR_FILTERS * 2, out_channels=DISCR_FILTERS * 4,
+                      kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(DISCR_FILTERS * 4),
+            nn.ReLU,
+            
         )
