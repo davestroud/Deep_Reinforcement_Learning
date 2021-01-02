@@ -65,6 +65,12 @@ class Discriminator(nn.Module):
             nn.Conv2d(in_channels=DISCR_FILTERS * 2, out_channels=DISCR_FILTERS * 4,
                       kernel_size=4, stride=2, padding=1),
             nn.BatchNorm2d(DISCR_FILTERS * 4),
-            nn.ReLU,
-            
+            nn.ReLU(),
+            nn.Conv2d(in_channels=DISCR_FILTERS * 4, out_channels=DISCR_FILTERS * 8,
+                      kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(DISCR_FILTERS * 8),
+            nn.ReLU(),
+            nn.Conv2d(in_channels=DISCR_FILTERS * 8, out_channels=1,
+                      kernel_size=4, stride=1, padding=0),
+            nn.Sigmoid()
         )
