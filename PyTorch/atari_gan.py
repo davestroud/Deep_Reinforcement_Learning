@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import random
 import argparse
-#import cv2
+import cv2
 
 import torch
 import torch.nn as nn
