@@ -41,4 +41,6 @@ def iterate_batches(env, net, batch_size):
     while True:
         obs_v = torch.FloatTensor([obs])
         act_probs_v = sm(net(obs_v))
-        act_probs = act_probs_v.data.numpy()[0]    
+        act_probs = act_probs_v.data.numpy()[0]
+        action = np.random.choice(len(act_probs), p=act_probs)
+        next_obs, reward, is_done, _ = env.step(action)   
