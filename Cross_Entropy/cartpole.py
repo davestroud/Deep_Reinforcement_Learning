@@ -38,3 +38,7 @@ def iterate_batches(env, net, batch_size):
     episode_steps = []
     obs = env.reset()
     sm = nn.Softmax(dim=1)
+    while True:
+        obs_v = torch.FloatTensor([obs])
+        act_probs_v = sm(net(obs_v))
+        act_probs = act_probs_v.data.numpy()[0]    

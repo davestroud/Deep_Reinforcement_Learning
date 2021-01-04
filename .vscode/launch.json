@@ -3,6 +3,21 @@
         {
             "type": "aws-sam",
             "request": "direct-invoke",
+            "name": "OneDrive - Troy University:Cross_Entropy.cartpole.iterate_batches (python3.7)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "\\Users\\jstroud32680\\OneDrive - Troy University\\Deep_Reinforcement_Learning",
+                "lambdaHandler": "Cross_Entropy.cartpole.iterate_batches"
+            },
+            "lambda": {
+                "runtime": "python3.7",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
             "name": "OneDrive - Troy University:Cross_Entropy.cartpole.namedtuple (python3.7)",
             "invokeTarget": {
                 "target": "code",
