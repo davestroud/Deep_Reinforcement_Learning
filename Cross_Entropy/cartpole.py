@@ -20,7 +20,7 @@ class Net(nn.Module):
         super(Net, self).__init__()
         self.net = nn.Sequential(
             nn.Linear(obs_size, hidden_size),
-            nn.ReLU(), 
+            nn.ReLU(),
             nn.Linear(hidden_size, n_actions)
         )
 
@@ -31,3 +31,10 @@ class Net(nn.Module):
     EpisodeStep = namedtuple(
         'EpisodeStep', field_names=['observation', 'action']
     )
+
+def iterate_batches(env, net, batch_size):
+    batch = []
+    episode_reward = 0.0
+    episode_steps = []
+    obs = env.reset()
+    sm = nn.Softmax(dim=1)
