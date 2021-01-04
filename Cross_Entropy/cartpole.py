@@ -26,3 +26,8 @@ class Net(nn.Module):
 
     def forward(self, x):
         return self.net(x)
+
+    Episode = namedtuple('Episode', field_names=['reward', 'steps'])
+    EpisodeStep = namedtuple(
+        'EpisodeStep', field_names=['observation', 'action']
+    )
