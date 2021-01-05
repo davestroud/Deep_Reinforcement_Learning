@@ -27,5 +27,9 @@ class DiscreteOneHotWrapper(gym.ObservationWrapper):
         assert isinstance(env.observation_space, gym.spaces.Discrete)
         shape = (env.observation_space.n, )
         self.observation_space = gym.spaces.Box(
-            0.0, 1.0, shape, dtype =np.float32
-        )
+            0.0, 1.0, shape, dtype =np.float32)
+ 
+    def observation(self, observation):
+        res = np.copy(self.observation_space.low)
+        res[observation] = 1.0
+        return res
